@@ -5,229 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev On Grind | Manifesto Terminal</title>
     <style>
-        :root {
-            --bg: #030508;
-            --panel: #090d16;
-            --accent: #00ff9d;
-            --text-main: #ffffff;
-            --text-dim: #718296;
-            --border: rgba(0, 255, 157, 0.15);
-            --code-bg: #05070b;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-        }
-
-        .terminal-container {
-            max-width: 750px;
-            width: 100%;
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-            overflow: hidden;
-        }
-
-        /* উইন্ডো হেডার */
-        .window-bar {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 14px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .window-dots {
-            display: flex;
-            gap: 6px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ff5f56;
-        }
-        .dot:nth-child(2) { background: #ffbd2e; }
-        .dot:nth-child(3) { background: #27c93f; }
-
-        .window-title {
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            letter-spacing: 1px;
-        }
-
-        /* মেইন বডি */
-        .terminal-body {
-            padding: 40px 30px;
-        }
-
-        /* প্রোফাইল মডিউল */
-        .profile-header {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            margin-bottom: 35px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 8px;
-            border: 1px solid var(--accent);
-            object-fit: cover;
-        }
-
-        .title-area h1 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: -0.5px;
-            margin-bottom: 6px;
-        }
-
-        .ticker-tag {
-            font-size: 0.85rem;
-            color: var(--accent);
-            font-weight: bold;
-            background: rgba(0, 255, 157, 0.08);
-            padding: 3px 10px;
-            border-radius: 4px;
-            border: 1px solid rgba(0, 255, 157, 0.2);
-        }
-
-        /* কন্ট্যাক্ট বক্স */
-        .ca-container {
-            background: var(--code-bg);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-left: 3px solid #00bfff;
-            border-radius: 4px;
-            padding: 16px;
-            margin-bottom: 35px;
-        }
-
-        .ca-label {
-            font-size: 0.7rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-        }
-
-        .ca-value {
-            font-size: 0.9rem;
-            color: #00bfff;
-            font-weight: bold;
-        }
-
-        /* ডিটেইল্ড ম্যানিফেস্টো সেকশন */
-        .section-block {
-            margin-bottom: 35px;
-            text-align: left;
-        }
-
-        .section-title {
-            font-size: 0.85rem;
-            color: var(--accent);
-            font-weight: bold;
-            margin-bottom: 15px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            flex-grow: 1;
-            height: 1px;
-            background: rgba(0, 255, 157, 0.15);
-        }
-
-        .info-paragraph {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: #cbd5e1;
-            margin-bottom: 12px;
-            padding-left: 15px;
-            position: relative;
-        }
-
-        .info-paragraph::before {
-            content: '>';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .highlight {
-            color: var(--text-main);
-            font-weight: bold;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1px 5px;
-            border-radius: 3px;
-        }
-
-        /* প্রিমিয়াম বাটন */
-        .action-link {
-            display: block;
-            background: transparent;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            text-align: center;
-            padding: 16px;
-            font-size: 1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 6px;
-            letter-spacing: 1px;
-            transition: all 0.25s ease;
-            margin-top: 20px;
-        }
-
-        .action-link:hover {
-            background: var(--accent);
-            color: var(--bg);
-            box-shadow: 0 0 25px rgba(0, 255, 157, 0.35);
-            transform: translateY(-1px);
-        }
+        :root { --bg: #030508; --panel: #090d16; --accent: #00ff9d; --text-main: #ffffff; --text-dim: #718296; --border: rgba(0, 255, 157, 0.15); --code-bg: #05070b; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', Courier, monospace; }
+        body { background-color: var(--bg); color: var(--text-main); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 40px 20px; }
+        .terminal-container { max-width: 750px; width: 100%; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); overflow: hidden; }
+        .window-bar { background: rgba(0, 0, 0, 0.4); padding: 14px 20px; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot:nth-child(1) { background: #ff5f56; } .dot:nth-child(2) { background: #ffbd2e; } .dot:nth-child(3) { background: #27c93f; }
+        .window-title { font-size: 0.75rem; color: var(--text-dim); letter-spacing: 1px; margin-left: 10px; }
+        .terminal-body { padding: 40px 30px; }
+        .profile-header { display: flex; align-items: center; gap: 25px; margin-bottom: 35px; padding-bottom: 25px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .avatar { width: 90px; height: 90px; border-radius: 8px; border: 1px solid var(--accent); object-fit: cover; }
+        .title-area h1 { font-size: 1.8rem; font-weight: bold; margin-bottom: 6px; }
+        .ticker-tag { font-size: 0.85rem; color: var(--accent); font-weight: bold; background: rgba(0, 255, 157, 0.08); padding: 3px 10px; border-radius: 4px; }
+        .ca-container { background: var(--code-bg); border-left: 3px solid #00bfff; padding: 16px; margin-bottom: 35px; }
+        .ca-label { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+        .ca-value { font-size: 0.9rem; color: #00bfff; font-weight: bold; }
+        .section-block { margin-bottom: 30px; text-align: left; }
+        .section-title { font-size: 0.85rem; color: var(--accent); font-weight: bold; margin-bottom: 12px; letter-spacing: 1.5px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+        .section-title::after { content: ''; flex-grow: 1; height: 1px; background: rgba(0, 255, 157, 0.15); }
+        .info-paragraph { font-size: 0.9rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 8px; padding-left: 15px; position: relative; }
+        .info-paragraph::before { content: '>'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+        .highlight { color: var(--text-main); font-weight: bold; background: rgba(255, 255, 255, 0.05); padding: 1px 5px; border-radius: 3px; }
+        .action-link { display: block; background: transparent; color: var(--accent); border: 1px solid var(--accent); text-align: center; padding: 16px; font-weight: bold; text-transform: uppercase; text-decoration: none; border-radius: 6px; transition: all 0.25s ease; }
+        .action-link:hover { background: var(--accent); color: var(--bg); box-shadow: 0 0 25px rgba(0, 255, 157, 0.35); }
     </style>
 </head>
 <body>
 
     <div class="terminal-container">
-        <!-- উইন্ডো টপ বার -->
         <div class="window-bar">
-            <div class="window-dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
             <div class="window-title">CORE_MANIFESTO_ENG.LOG:~</div>
-            <div></div>
         </div>
 
         <div class="terminal-body">
-            <!-- প্রোফাইল হেডার -->
             <div class="profile-header">
                 <img src="logo.png" alt="Dev" class="avatar">
                 <div class="title-area">
@@ -236,49 +48,58 @@
                 </div>
             </div>
 
-            <!-- কনট্রাক্ট বক্স -->
             <div class="ca-container">
                 <div class="ca-label">Verified Smart Contract</div>
                 <div class="ca-value">[STEALTH_LAUNCH_ON_PUMP_FUN_SOON]</div>
             </div>
 
-            <!-- সেকশন ১: আমাদের পরিচিতি ও ব্যাকস্টোরি -->
+            <!-- 01 -->
             <div class="section-block">
                 <div class="section-title">01 // THE SYSTEM ORIGIN</div>
-                <div class="info-paragraph">
-                    We are not a multi-million dollar venture capital firm, nor do we have a paid marketing cartel. This ecosystem is engineered entirely by a <span class="highlight">solo developer operating behind the scenes from a low-spec setup</span>.
-                </div>
-                <div class="info-paragraph">
-                    While typical projects launch with massive insider allocation and expensive bots, we choose to grind out volume natively. This is code written in the dark, driven by pure mathematical execution and unyielding consistency.
-                </div>
+                <div class="info-paragraph">Engineered by a <span class="highlight">solo developer</span> on low-spec hardware, this project is built on persistence, not VC funding.</div>
             </div>
 
-            <!-- সেকশন ২: আমাদের আসল উদ্দেশ্য -->
+            <!-- 02 -->
             <div class="section-block">
-                <div class="section-title">02 // OUR MAIN OBJECTIVE</div>
-                <div class="info-paragraph">
-                    <span class="highlight">The Ultimate Goal:</span> To dismantle the current pump-and-dump meta on Solana by building a completely transparent, high-volume community ecosystem.
-                </div>
-                <div class="info-paragraph">
-                    We aim to bypass the noisy, spam-filled networks of Telegram and focus 100% of our energy on decentralization via X (Twitter). Our purpose is to establish a safe haven for real 'degens' who want an organic token takeoff without the threat of instant developer rugs.
-                </div>
+                <div class="section-title">02 // MISSION & GOALS</div>
+                <div class="info-paragraph"><span class="highlight">Why $GRIND?</span> It represents the developer's journey—struggle and consistency. We aim to dismantle 'pump-and-dump' cycles.</div>
+                <div class="info-paragraph"><span class="highlight">Our Goal:</span> Establish $GRIND as the benchmark for honest, community-driven Solana innovation.</div>
             </div>
 
-            <!-- সেকশন ৩: টেকনিক্যাল আর্কিটেকচার -->
+            <!-- 03 -->
             <div class="section-block">
-                <div class="section-title">03 // TECHNICAL BLUEPRINT</div>
-                <div class="info-paragraph">
-                    <span class="highlight">Fair Launch Architecture:</span> 100% of the total token supply will be added directly to the public launch pool. There is zero pre-allocation for team or advisors.
-                </div>
-                <div class="info-paragraph">
-                    <span class="highlight">Immutable Security:</span> Upon deployment through Pump.fun, the mint authority is automatically revoked, ensuring that the tokenomics structure can never be manipulated by anyone.
-                </div>
+                <div class="section-title">03 // WHY PARTNER WITH US</div>
+                <div class="info-paragraph">Unlike other tokens, we offer <span class="highlight">tangible ownership</span>. Early partners are co-builders who own a stake in the long-term success of the ecosystem.</div>
             </div>
 
-            <!-- অ্যাকশন বাটন -->
+            <!-- 04 -->
+            <div class="section-block">
+                <div class="section-title">04 // TECHNICAL BLUEPRINT</div>
+                <div class="info-paragraph">Built on <span class="highlight">clean, audited code</span>. We focus on efficiency and scalability, keeping the ecosystem lightweight for maximum performance.</div>
+            </div>
+
+            <!-- 05 -->
+            <div class="section-block">
+                <div class="section-title">05 // TOKEN VITAL STATISTICS</div>
+                <div class="info-paragraph"><span class="highlight">Fair Launch:</span> 100% supply added to public liquidity. Zero pre-allocation for insiders.</div>
+                <div class="info-paragraph"><span class="highlight">Immutable Security:</span> Mint authority revoked on deployment. What you see is what you get—forever.</div>
+            </div>
+
+            <!-- 06 -->
+            <div class="section-block">
+                <div class="section-title">06 // LAUNCH PROTOCOL</div>
+                <div class="info-paragraph"><span class="highlight">Launchpad:</span> Launching via <strong>Pump.fun</strong> for a fair and level playing field.</div>
+                <div class="info-paragraph"><span class="highlight">Timeline:</span> Currently in the "Deep Build" phase. Official deployment locked for <strong>early July 2026</strong>.</div>
+            </div>
+
+            <!-- 07 -->
+            <div class="section-block">
+                <div class="section-title">07 // FINAL COMMITMENT</div>
+                <div class="info-paragraph">We are here to stay. This isn't a quick play; it's a marathon. We build for the long haul, and our code is our bond.</div>
+            </div>
+
             <a href="https://x.com/DevOnGrind" target="_blank" class="action-link">Monitor System Updates On X</a>
         </div>
     </div>
-
 </body>
 </html>
